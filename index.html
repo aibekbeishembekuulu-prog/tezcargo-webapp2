@@ -1,130 +1,184 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Регистрация Tez Kargo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Tez Kargo</title>
+
 <style>
-body{font-family:Arial,sans-serif;background:#f3f4f6;padding:15px;}
-.container{background:#fff;padding:20px;border-radius:20px;max-width:400px;margin:auto;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
-.logo{width:170px;display:block;margin:0 auto 20px;}
-h2{text-align:center;margin-bottom:20px;}
-p{text-align:center;margin-bottom:15px;font-size:14px;line-height:1.5;}
-label{font-size:14px;font-weight:600;}
-input{width:100%;padding:12px;margin-top:5px;margin-bottom:15px;border-radius:10px;border:none;background:#eef1ea;font-size:14px;}
-.main-btn{width:100%;padding:14px;border:none;border-radius:30px;background:#ff3b30;color:white;font-size:16px;font-weight:bold;margin-top:10px;box-shadow:0 4px 0 #b3261e;cursor:pointer;}
-.main-btn:active{transform:scale(0.98);}
-.success{display:none;text-align:center;margin-top:20px;}
-.success p{font-size:16px;margin:10px 0;}
-.success-btn{width:80%;padding:12px;border:none;border-radius:30px;background:#007bff;color:white;font-size:16px;font-weight:bold;margin-top:15px;box-shadow:0 3px 0 #0056b3;cursor:pointer;}
-.success-btn:active{transform:scale(0.98);}
-.welcome{display:block;text-align:center;margin-top:30px;}
-a{color:#007bff;text-decoration:none;}
-a:hover{text-decoration:underline;}
-.agreement{background:#f9f9f9;padding:15px;border-radius:15px;margin-bottom:15px;font-size:13px;line-height:1.4;}
+
+body{
+font-family: Arial;
+background:#f1f1f1;
+margin:0;
+text-align:center;
+}
+
+.logo{
+width:160px;
+margin-top:20px;
+}
+
+.card{
+background:#eeeeee;
+margin:20px;
+padding:20px;
+border-radius:12px;
+text-align:left;
+}
+
+h2{
+margin-top:10px;
+}
+
+.btn{
+background:#ff3b30;
+color:white;
+border:none;
+padding:15px;
+width:90%;
+font-size:18px;
+border-radius:30px;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.form{
+display:none;
+background:white;
+margin:20px;
+padding:20px;
+border-radius:12px;
+text-align:left;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:6px;
+margin-bottom:12px;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:16px;
+}
+
+.submit{
+background:#ff3b30;
+color:white;
+border:none;
+padding:14px;
+width:100%;
+font-size:18px;
+border-radius:25px;
+cursor:pointer;
+}
+
 </style>
+
 </head>
+
 <body>
 
-<div class="container">
-  <!-- Логотип -->
-  <img src="logo.jpg.jpg" class="logo" alt="TezKargo Logo">
+<img src="logo.jpg.jpg" class="logo">
 
-  <!-- Краткий договор перед регистрацией -->
-  <div class="agreement">
-    <strong>ДОГОВОР ПУБЛИЧНОЙ ОФЕРТЫ</strong><br><br>
-    Используя <strong>Логистическую услугу Тез Карго</strong>, вы соглашаетесь с условиями доставки грузов:<br>
-    • Услуга включает только перевозку товаров, компания не отвечает за качество или комплектность товара.<br>
-    • Клиент обязан предоставить точные данные для доставки.<br>
-    • Сроки доставки могут зависеть от таможни, погоды и других обстоятельств.<br>
-    • Все споры решаются по законодательству Кыргызской Республики.<br>
-    <br>
-    <em>Прочтите полный текст договора на официальном сайте перед регистрацией.</em>
-  </div>
+<div class="card">
 
-  <!-- Приветственный экран -->
-  <div class="welcome" id="welcomeScreen">
-    <h2>Пройдите регистрацию</h2>
-    <button class="main-btn" id="startBtn">Начать регистрацию</button>
-  </div>
+<h3>ДОГОВОР ПУБЛИЧНОЙ ОФЕРТЫ</h3>
 
-  <!-- Форма регистрации -->
-  <div id="formContainer" style="display:none;">
-    <h2>Регистрация</h2>
-    <form id="form">
-      <label>ФИО</label>
-      <input type="text" id="name" placeholder="ФИО" required>
+<p>
 
-      <label>Телефон (WhatsApp)</label>
-      <input type="tel" id="phone" placeholder="+996..." required>
+Используя <b>Логистическую услугу Tez Kargo</b>, вы соглашаетесь с условиями доставки грузов:
 
-      <label>Город</label>
-      <input type="text" id="city" placeholder="Ваш город" required>
+<br><br>
 
-      <label>Адрес (необязательно)</label>
-      <input type="text" id="address" placeholder="Адрес">
+• Услуга включает только перевозку товаров, компания не отвечает за качество или комплектность товара.  
+<br>
+• Клиент обязан предоставить точные данные для доставки.  
+<br>
+• Сроки доставки могут зависеть от таможни, погоды и других обстоятельств.  
+<br>
+• Все споры решаются по законодательству Кыргызской Республики.
 
-      <button class="main-btn" type="submit">Зарегистрироваться</button>
-    </form>
-  </div>
+<br><br>
 
-  <!-- Экран успешной регистрации -->
-  <div class="success" id="success">
-    <h2>Регистрация завершена ✅</h2>
-    <p id="clientCodeText"></p>
-    <button class="success-btn" id="goBot">Перейти в бот</button>
-  </div>
+<i>Прочтите полный текст договора на официальном сайте перед регистрацией.</i>
+
+</p>
+
+</div>
+
+<h2>Пройдите регистрацию</h2>
+
+<button class="btn" onclick="openForm()">Начать регистрацию</button>
+
+<div class="form" id="form">
+
+<h2>Регистрация</h2>
+
+<label>ФИО</label>
+<input id="name" placeholder="Ваше имя">
+
+<label>Телефон (WhatsApp)</label>
+<input id="phone" placeholder="+996...">
+
+<label>Город</label>
+<input id="city" placeholder="Ваш город">
+
+<label>Адрес (необязательно)</label>
+<input id="address" placeholder="Адрес">
+
+<button class="submit" onclick="register()">Зарегистрироваться</button>
+
+<div id="result"></div>
+
 </div>
 
 <script>
-// Telegram WebApp API
-const tg = window.Telegram?.WebApp;
-if(tg) tg.expand();
 
-// Кнопка "Начать регистрацию"
-document.getElementById("startBtn").addEventListener("click", function(){
-  document.getElementById("welcomeScreen").style.display = "none";
-  document.getElementById("formContainer").style.display = "block";
-});
+function openForm(){
 
-// Обработка формы регистрации
-document.getElementById("form").addEventListener("submit", function(e){
-  e.preventDefault();
+document.getElementById("form").style.display="block"
 
-  const userData = {
-    telegram_id: tg?.initDataUnsafe?.user?.id || "local-test",
-    name: document.getElementById("name").value,
-    phone: document.getElementById("phone").value,
-    city: document.getElementById("city").value,
-    address: document.getElementById("address").value
-  };
+window.scrollTo(0,document.body.scrollHeight)
 
-  fetch("https://script.google.com/macros/s/AKfycbzXWGbukebhOVZ2Yd2ukX0fDA2GXSIzkZ4BgKoIwIV92iiV7GseccmUN3dsAayYSzediQ/exec", {
-    method: "POST",
-    body: JSON.stringify(userData)
-  })
-  .then(res => res.json())
-  .then(data => {
-    const code = data.client_code || "Ошибка генерации кода";
-    document.getElementById("formContainer").style.display = "none";
-    const successScreen = document.getElementById("success");
-    successScreen.style.display = "block";
-    document.getElementById("clientCodeText").innerHTML = `<strong>Ваш клиентский код:</strong> ${code}`;
-  })
-  .catch(err => {
-    console.error(err);
-    alert("Ошибка отправки данных. Попробуйте позже.");
-  });
+}
 
-  if(tg) tg.sendData(JSON.stringify({is_registered:"yes", ...userData}));
-});
+function register(){
 
-// Кнопка "Перейти в бот"
-document.getElementById("goBot").addEventListener("click", function(){
-  if(tg) tg.close();
-});
+let name=document.getElementById("name").value
+let phone=document.getElementById("phone").value
+let city=document.getElementById("city").value
+let address=document.getElementById("address").value
+
+fetch("https://script.google.com/macros/s/AKfycbwFDtq0P9UUpi04C1eVxLciWYbPr7jYnGztT9jqYNEAmS42nIs7RyPQGgcPOgMHsUil/exec",{
+
+method:"POST",
+
+body:JSON.stringify({
+
+name:name,
+phone:phone,
+city:city,
+address:address
+
+})
+
+})
+
+.then(res=>res.json())
+
+.then(data=>{
+
+document.getElementById("result").innerHTML=
+"<br>✅ Вы успешно зарегистрировались<br><br>Ваш клиентский код: <b>"+data.client_code+"</b>"
+
+})
+
+}
+
 </script>
 
 </body>
-
 </html>
