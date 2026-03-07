@@ -95,14 +95,14 @@ function register(){
     return;
   }
 
-  fetch("https://script.google.com/macros/s/AKfycbyvCbVT3Hs4ls6f5AshmZOrKmdpCnNUuJV02lFbhfk4j75jtoIxPZYbPsR4q7H9bRQL/exec", { // <-- вставьте сюда ссылку из Apps Script
+  fetch("", { // <-- вставьте сюда ссылку из Apps Script
     method: "POST",
     body: JSON.stringify({
       name: name,
       phone: phone,
       city: city,
       address: address,
-      telegram_id: "" // автоматически пусто
+      telegram_id: "https://script.google.com/macros/s/AKfycbymfVVupE36RcAEBm_DRriendo7OmHAnxNSToI233JyJJGiLQ8eRJJMhRvFj3TuQ7qa/exec" // автоматически пусто
     })
   })
   .then(res => res.json())
@@ -125,4 +125,5 @@ function register(){
 
 </body>
 </html>
+
 
